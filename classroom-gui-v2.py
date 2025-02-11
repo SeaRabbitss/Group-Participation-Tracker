@@ -55,6 +55,9 @@ class ClassroomGUI:
         control_frame = ttk.Frame(self.main_frame, padding="10")
         control_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S), padx=10)
         
+        # Configure column weight to enable centering
+        control_frame.columnconfigure(0, weight=1)
+        
         # Export to CSV button
         ttk.Button(control_frame, text="Export to CSV", command=self.export_csv).grid(row=0, column=0, pady=5, sticky='ew')
         
@@ -75,9 +78,13 @@ class ClassroomGUI:
         self.remove_student_entry.grid(row=0, column=0, pady=5, padx=5, sticky='ew')
         ttk.Button(remove_frame, text="Remove Student", command=self.remove_student).grid(row=1, column=0, pady=5, sticky='ew')
         
-        # Select student frame
+        # Select student frame - centered
         select_frame = ttk.LabelFrame(control_frame, text="Select Student", padding="10")
         select_frame.grid(row=5, column=0, pady=10, sticky='ew')
+        
+        # Configure column weight in select_frame for centering
+        select_frame.columnconfigure(0, weight=1)
+        
         self.selected_student_var = tk.StringVar()
         ttk.Label(select_frame, textvariable=self.selected_student_var).grid(row=0, column=0, pady=5)
         ttk.Button(select_frame, text="Select Student", command=self.select_random_student).grid(row=1, column=0, pady=5, sticky='ew')
