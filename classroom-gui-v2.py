@@ -141,19 +141,7 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = ClassroomGUI(root)
     
-    # Add example students (as shown in the image)
-    example_students = {
-        "Nathan Jia": 2,
-        "Akash Reddy": 2,
-        "Kevin Xu": 2,
-        "Ryan Tang": 1,
-        "Vinay Reddy": 2,
-        "Zackery Huang": 1,
-        "Rohan Shankar": 2,
-        "Adarsh Kapen": 1,
-        "Andrew Zhang": 1
-    }
-    app.students = example_students
+
     app.update_classroom_display()
     
     root.mainloop()
