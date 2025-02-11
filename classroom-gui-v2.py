@@ -126,7 +126,16 @@ class ClassroomGUI:
 
     def select_random_student(self):
         if self.students:
-            selected = random.choice(list(self.students.keys()))
+            # Find the minimum participation count
+            min_count = min(self.students.values())
+            
+            # Get all students with the minimum count
+            min_students = [student for student, count in self.students.items() 
+                        if count == min_count]
+            
+            # Select the alphabetically first student
+            selected = min(min_students)
+            
             self.selected_student_var.set(selected)
             # Increment participation count for selected student
             self.increment_participation(selected)
